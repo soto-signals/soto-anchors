@@ -1,0 +1,23 @@
+name: ots-backfill
+# One-off (Oct 12): commit the 2026-10-10 and 2026-10-11 .ots stamps that the web upload flow refused (HTTP 400 x4).
+# Delete this file after a successful run.
+on:
+  workflow_dispatch:
+jobs:
+  commit-ots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: write .ots files
+        run: |
+          echo "AE9wZW5UaW1lc3RhbXBzAABQcm9vZgC/ieLohOiSlAEIrfDafwOo0aqlHIrLS9dQE0d7FBCwnJYsKK2+DugC8xXwEBNVjQP/Az7Ityav0hLogywI//AIJp1/YhJx2qsI8CCImH1PO6OuUaSL0/A5q101WE3BNmwwrqqU+idRzqslZgjwIL/BnJ7jXvV64tvr4n2i0scPjqdjDTPWD58LVcJvf1zzCPAQju8TcnTy2pQ8DGdOfMJCkgjxIN+vP13tLbiRfme7ytcsW1zXnfI74io83DUs+6q5xzm3CPEgGW9oCxKHEvITpnhCmqrhfSDs9dUcZo4GyPJwlJJLkPMI8CAfbTHbwSSwbU5yiCZCAkG5Y6aJnNBQSaeLWsVjm+9juwjxBGrLM97wCIfe1rC/5QTzAIPf4w0u+QyOLi1odHRwczovL2FsaWNlLmJ0Yy5jYWxlbmRhci5vcGVudGltZXN0YW1wcy5vcmf/8BCLbloqJBahXoGx4l7N8KiiCPEgqGhlZhbVoyguJ0TWkG1+8PH++LJXKBaIiBUFa2FPLz0I8CAe/z4YBWt2ZRbangOy8CJgq8FNUURraHBTAKpB+MQzdQjxBGrLM97wCD2qvTH8SFBnAIPf4w0u+QyOIyJodHRwczovL2J0Yy5jYWxlbmRhci5jYXRhbGxheHkuY29t//AIi3NCnvMUWxkI8BAtx4aikirqkMW4dgx+zoTmCPAgOHMgsT78aoJ2sqSw+BHJf68nUybpz/MhS/s2AgxpHHYI8SCTR7KZzC2rgIvu6egdOlusxZx/2AM08WqKW67j+BdCuAjwIDF7L8nBznBLPUUil9BN8u+RstsBOy1LD2K/H85wzXYuCPEEassz3vAI8LFTa/P9YSgAg9/jDS75DI4sK2h0dHBzOi8vYm9iLmJ0Yy5jYWxlbmRhci5vcGVudGltZXN0YW1wcy5vcmfwEK1c7lAqnxW6NqN9KiSq7koI8SDiLVX8wxszZ0EpaPU69uXZrEvfR05K9KdI20Uepc3WrgjxIGTWKpsRNB1QQ6ebI44kkZSAKq286nLou+0LTI3omzwUCPEEassz3vAIlnxWqUpjGfYAg9/jDS75DI4pKGh0dHBzOi8vZmlubmV5LmNhbGVuZGFyLmV0ZXJuaXR5d2FsbC5jb20=" | base64 -d > anchors/2026-10-10.txt.ots
+          echo "AE9wZW5UaW1lc3RhbXBzAABQcm9vZgC/ieLohOiSlAEIS2iasqEdZxzzIy4BiNZWOrW+W7xH4Lr5GoevDd/j/rDwEDmZ/9wvq0Ir7eWTAIt6YqAI//AIIktK5p3U4agI8BBYqJG8348eoheJedALf3aWCPEghEOZWwikzxcyT5uCmoMzholk43thQliyYUEGazas8ZQI8QRqzIVZ8AgTzIlgvLdu1wCD3+MNLvkMji4taHR0cHM6Ly9hbGljZS5idGMuY2FsZW5kYXIub3BlbnRpbWVzdGFtcHMub3Jn//AQlJRQ42JpYT2Q2uPLEA0EhAjwINqhyFWFZR1MKReQ6Xds/8gdQJFC5TeYi2tHIsJ9/28WCPEEasyFWfAIo13caIh+ZsMAg9/jDS75DI4jImh0dHBzOi8vYnRjLmNhbGVuZGFyLmNhdGFsbGF4eS5jb23/8AioAR8cLkOE6gjwIAlvNzZM0F7J61vnYfNh6Oo/qkgnsRJ1uk86DdEugIM8CPAQLQZRc2lqkyj2BKLZqpSNzAjwIBe0G2a86ITBZwPzNB2sHJPRYHKGLCp6I3GP8KLls/eBCPAgUtxTPKJempY1YUHBcb8fa1brV4OE82yVLjFXgZrP680I8QRqzIVa8Agv1SoRWzptKACD3+MNLvkMjiwraHR0cHM6Ly9ib2IuYnRjLmNhbGVuZGFyLm9wZW50aW1lc3RhbXBzLm9yZ/AQzUt0QMA2pTEFhaOd1PeJrwjwIICPTKyTyImPXPWSyTuPeVlonPGYZyb0VWr3I+MSF5j8CPEgf7WxmvguvUYkagpGFKMAgxan6MaZ0HFLkTylqdtQCOYI8CDM0pGfcKrkQpemRPluvJTNCxCAjB59ByGalfgRe/44AwjxBGrMhVrwCG1NERnaN4DJAIPf4w0u+QyOKShodHRwczovL2Zpbm5leS5jYWxlbmRhci5ldGVybml0eXdhbGwuY29t" | base64 -d > anchors/2026-10-11.txt.ots
+          sha256sum anchors/2026-10-10.txt.ots anchors/2026-10-11.txt.ots
+      - name: commit
+        run: |
+          git config user.name "soto-anchors[bot]"
+          git config user.email "actions@users.noreply.github.com"
+          git add anchors/2026-10-10.txt.ots anchors/2026-10-11.txt.ots
+          git commit -m "backfill .ots stamps for 2026-10-10 and 2026-10-11 anchors"
+          git push
