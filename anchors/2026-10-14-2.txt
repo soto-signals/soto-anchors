@@ -1,0 +1,8 @@
+SOTO record head
+date_pt: 2026-10-14
+chain_seq: 31
+head_hash: 324476e8b3f3ab54c410cbc9e3fc9b648cee546b3d98d66018937b4c4f2975ff
+calls_registered: 5
+rules: ADR-000 sha256 1bd75421d340cc3e4babbbb448d91283d478b3eec96b08eef5f70f2c98bdb8c7
+evidence_log: entries 0 head 0000000000000000000000000000000000000000000000000000000000000000 (https://soto-record.soto-hq.workers.dev/evidence.jsonl)
+verify: https://soto-record.soto-hq.workers.dev/
